@@ -1,9 +1,9 @@
 package org.wahlzeit.model;
 
 public class Coordinate {
-	public double x;
-	public double y;
-	public double z;
+	private double x;
+	private double y;
+	private double z;
 	
 	public Coordinate(double x, double y, double z)	{
 		this.x = x;
