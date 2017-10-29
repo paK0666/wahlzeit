@@ -8,6 +8,9 @@ public class Location {
 	}
 	
 	public boolean equals(Location other) {
+		if (this.coordinate == null || other == null) {
+			return false;
+		}
 		return this.coordinate.isEqual(other.coordinate);
 	}
 }
