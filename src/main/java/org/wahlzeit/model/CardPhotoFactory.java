@@ -21,7 +21,8 @@ public class CardPhotoFactory extends PhotoFactory {
 	 * Hidden singleton instance; needs to be initialized from the outside.
 	 */
 	public static void initialize() {
-		getInstance(); // drops result due to getInstance() side-effects
+		CardPhotoFactory f = getInstance(); // drops result due to getInstance() side-effects
+		PhotoFactory.setInstance(f);
 	}
 	
 	/**
