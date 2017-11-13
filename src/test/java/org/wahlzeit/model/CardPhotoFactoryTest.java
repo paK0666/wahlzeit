@@ -15,8 +15,8 @@ public class CardPhotoFactoryTest {
 		}
 		
 		PhotoFactory i = CardPhotoFactory.getInstance();
-		//PhotoFactory i2 = PhotoFactory.getInstance();*/
-		//assertEquals(i, i2);
+		PhotoFactory i2 = PhotoFactory.getInstance();
+		assertTrue(i == i2);
 	}
 	
 
