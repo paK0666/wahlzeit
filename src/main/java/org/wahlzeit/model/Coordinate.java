@@ -1,37 +1,13 @@
 package org.wahlzeit.model;
 
-public class Coordinate {
-	private double x;
-	private double y;
-	private double z;
-	
-	public Coordinate(double x, double y, double z)	{
-		this.x = x;
-		this.y = y;
-		this.z = z;
-	}
-	
-	public double getDistance(Coordinate other) {
-		if (other == null) {
-			return -1;
-		}
-		
-		double xDiff = this.x - other.x;
-		double yDiff = this.y - other.y;
-		double zDiff = this.z - other.z;
-		
-		return Math.sqrt(xDiff * xDiff + yDiff * yDiff + zDiff * zDiff);
-	}
-	
-	public boolean isEqual(Coordinate other) {
-		if(other == null) {
-			return false;
-		}
-		
-		return this.getDistance(other) == 0.0;
-	}
-	
-	public boolean equals(Coordinate other) {
-		return this.isEqual(other);
-	}
+import org.wahlzeit.model.CoordinateImpl.CartesianCoordinate;
+import org.wahlzeit.model.CoordinateImpl.SphericCoordinate;
+
+public interface Coordinate {
+	public CartesianCoordinate asCartesianCoordinate();
+	public double getCartesianDistance(Coordinate c);
+	public SphericCoordinate asSphericCoordinate();
+	public double getSphericDistance(Coordinate c);
+	public double getDistance(Coordinate c);
+	public boolean isEqual(Coordinate c);
 }
