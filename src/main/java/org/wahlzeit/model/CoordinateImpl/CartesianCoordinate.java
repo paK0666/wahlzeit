@@ -2,7 +2,7 @@ package org.wahlzeit.model.CoordinateImpl;
 
 import org.wahlzeit.model.Coordinate;
 
-public class CartesianCoordinate implements Coordinate{
+public class CartesianCoordinate extends AbstractCoordinate{
 	private double x;
 	private double y;
 	private double z;
@@ -44,23 +44,5 @@ public class CartesianCoordinate implements Coordinate{
 		double cDistance = getCartesianDistance(c);
 		double centralAngle = 2 * Math.asin(Math.toRadians(cDistance / 2));
 		return this.asSphericCoordinate().getRadius() * centralAngle;
-	}
-
-	@Override
-	public double getDistance(Coordinate c) {
-		return getCartesianDistance(c);
-	}
-
-	@Override
-	public boolean isEqual(Coordinate c) {
-		if (c == null) {
-			return false;
-		}
-		
-		return getDistance(c) < 2;
-	}
-	
-	public boolean equals(Coordinate other) {
-		return this.isEqual(other);
-	}
+	}	
 }
