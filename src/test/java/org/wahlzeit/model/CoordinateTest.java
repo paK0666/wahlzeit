@@ -28,16 +28,36 @@ public class CoordinateTest {
 		this.sTwoCoord = new SphericCoordinate(3, 3, 3);
 	}
 	
+	
 	@Test
 	public void equalsTest() {
-		assertFalse(cOneCoord.isEqual(cNullCoord));
-		assertFalse(cOneCoord.equals(cNullCoord));
+		try {
+			cOneCoord.isEqual(cNullCoord);
+			fail();
+		} catch (IllegalArgumentException e) {}
+		try {
+			cOneCoord.equals(cNullCoord);
+			fail();
+		} catch (IllegalArgumentException e) {}
+		
+		
 		assertTrue(cOneCoord.isEqual(cOneCoord));
 		assertTrue(cOneCoord.equals(cOneCoord));
 		assertFalse(cOneCoord.isEqual(cTwoCoord));
 		assertFalse(cOneCoord.equals(cTwoCoord));
-		assertFalse(sOneCoord.isEqual(sNullCoord));
-		assertFalse(sOneCoord.equals(sNullCoord));
+		
+		try {
+			sOneCoord.isEqual(sNullCoord);
+			fail();
+		} catch (IllegalArgumentException e) {}
+		
+		
+		try {
+			sOneCoord.equals(sNullCoord);
+			fail();
+		} catch (IllegalArgumentException e) {}
+		
+		
 		assertTrue(sOneCoord.isEqual(sOneCoord));
 		assertTrue(sOneCoord.equals(sOneCoord));
 		assertFalse(sOneCoord.isEqual(sTwoCoord));
@@ -56,9 +76,21 @@ public class CoordinateTest {
 	
 	@Test
 	public void distanceTest() {
-		assertTrue(cOneCoord.getDistance(cNullCoord) == -1);
+		try {
+			cOneCoord.getDistance(cNullCoord);
+			fail();
+		} catch (IllegalArgumentException e) {}
+		
+		
 		assertEquals(cOneCoord.getDistance(cTwoCoord),  3.46, 0.01);
-		assertTrue(sOneCoord.getDistance(sNullCoord) == -1);
+		
+		try {
+			sOneCoord.getDistance(sNullCoord);
+			fail();
+		} catch (IllegalArgumentException e) {}
+		
+		
+
 		assertEquals(sOneCoord.getDistance(sTwoCoord),  3.67, 0.01);
 	}
 	

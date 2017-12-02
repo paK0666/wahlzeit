@@ -10,7 +10,7 @@ public abstract class AbstractCoordinate implements Coordinate {
 
 	public boolean isEqual(Coordinate c) {
 		if (c == null) {
-			return false;
+			throw new IllegalArgumentException();
 		}
 		
 		return getDistance(c) < 2;
@@ -19,4 +19,6 @@ public abstract class AbstractCoordinate implements Coordinate {
 	public boolean equals(Coordinate other) {
 		return this.isEqual(other);
 	}
+	
+	abstract void assertClassInvariants();
 }

@@ -21,7 +21,7 @@ public class CartesianCoordinate extends AbstractCoordinate{
 	@Override
 	public double getCartesianDistance(Coordinate c) {
 		if (c == null) {
-			return -1;
+			throw new IllegalArgumentException();
 		}
 
 		CartesianCoordinate other = c.asCartesianCoordinate();
@@ -40,9 +40,16 @@ public class CartesianCoordinate extends AbstractCoordinate{
 
 	@Override
 	public double getSphericDistance(Coordinate c) {
+		if (c == null) {
+			throw new IllegalArgumentException();
+		}
 		
 		double cDistance = getCartesianDistance(c);
 		double centralAngle = 2 * Math.asin(Math.toRadians(cDistance / 2));
 		return this.asSphericCoordinate().getRadius() * centralAngle;
 	}	
+	
+	void assertClassInvariants() {
+		//no check, as the class can not be in an invalid state
+	}
 }
