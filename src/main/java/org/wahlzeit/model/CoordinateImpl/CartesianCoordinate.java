@@ -29,7 +29,9 @@ public class CartesianCoordinate extends AbstractCoordinate{
 		double yDiff = this.y - other.y;
 		double zDiff = this.z - other.z;
 			
-		return Math.sqrt(xDiff * xDiff + yDiff * yDiff + zDiff * zDiff);
+		double retDistance =  Math.sqrt(xDiff * xDiff + yDiff * yDiff + zDiff * zDiff);
+		assert(retDistance >= 0.0);
+		return retDistance;
 	}
 
 	@Override
@@ -46,7 +48,9 @@ public class CartesianCoordinate extends AbstractCoordinate{
 		
 		double cDistance = getCartesianDistance(c);
 		double centralAngle = 2 * Math.asin(Math.toRadians(cDistance / 2));
-		return this.asSphericCoordinate().getRadius() * centralAngle;
+		double retDistance =  this.asSphericCoordinate().getRadius() * centralAngle;
+		assert(retDistance >= 0.0);
+		return retDistance;
 	}	
 	
 	void assertClassInvariants() {

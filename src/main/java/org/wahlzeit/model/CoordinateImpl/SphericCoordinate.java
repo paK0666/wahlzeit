@@ -41,7 +41,9 @@ public class SphericCoordinate extends AbstractCoordinate {
 		}
 		
 		assertClassInvariants();
-		return asCartesianCoordinate().getCartesianDistance(c);
+		double retDistance = asCartesianCoordinate().getCartesianDistance(c);
+		assert(retDistance >= 0.0);
+		return retDistance;
 	}
 
 	@Override
@@ -58,7 +60,9 @@ public class SphericCoordinate extends AbstractCoordinate {
 		double cDistance = getCartesianDistance(c);
 		double centralAngle = 2 * Math.asin(Math.toRadians(cDistance / 2));
 		assertClassInvariants();
-		return this.radius * centralAngle;
+		double retDistance =  this.radius * centralAngle;
+		assert(retDistance >= 0.0);
+		return retDistance;
 	}
 	
 	void assertClassInvariants() {

@@ -5,7 +5,9 @@ import org.wahlzeit.model.Coordinate;
 public abstract class AbstractCoordinate implements Coordinate {
 	
 	public double getDistance(Coordinate c) {
-		return getCartesianDistance(c);
+		double distance =  getCartesianDistance(c);
+		assert(distance >= 0.0);
+		return distance;
 	}
 
 	public boolean isEqual(Coordinate c) {
