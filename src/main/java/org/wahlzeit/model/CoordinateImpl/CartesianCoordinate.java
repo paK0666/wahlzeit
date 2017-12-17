@@ -3,9 +3,9 @@ package org.wahlzeit.model.CoordinateImpl;
 import org.wahlzeit.model.Coordinate;
 
 public class CartesianCoordinate extends AbstractCoordinate{
-	private double x;
-	private double y;
-	private double z;
+	private final double x;
+	private final double y;
+	private final double z;
 	
 	public CartesianCoordinate(double x, double y, double z)	{
 		this.x = x;

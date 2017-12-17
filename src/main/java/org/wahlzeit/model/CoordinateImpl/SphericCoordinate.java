@@ -4,9 +4,9 @@ import org.wahlzeit.model.Coordinate;
 
 public class SphericCoordinate extends AbstractCoordinate {
 
-	private double latitude;
-	private double longitude;
-	private double radius;
+	private final double latitude;
+	private final double longitude;
+	private final double radius;
 	
 	public SphericCoordinate(double latitude, double longitude, double radius) {
 		if ((latitude < -90.0) || (latitude > 90.0) ||
