@@ -4,6 +4,20 @@ import java.util.logging.Logger;
 
 import org.wahlzeit.services.LogBuilder;
 
+/*
+@PatternInstance(
+	patternName = "Concrete Factory"
+	participants = {"Abstract Factory", "Concrete Factory"}
+	usage = "Instantiated concrete factory, based on the abstract factory, for creating the photo type
+		specific to this wahlzeit instance"
+)
+
+@PatternInstance(
+	patternName = "Singleton"
+	participants = "Singleton"
+	usage = "Instantiated concrete factory, only one can exist at any time"
+)
+*/
 public class CardPhotoFactory extends PhotoFactory {
 	private static final Logger log = Logger.getLogger(CardPhotoFactory.class.getName());
 	

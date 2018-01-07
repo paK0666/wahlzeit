@@ -27,6 +27,13 @@ import org.wahlzeit.utils.EnumValue;
  * A photo may be visible or invisible, it may have been flagged, and it may have been deleted.
  * These states are not mutually exclusive, hence the bitset simulation in this class.
  */
+/*
+@PatternInstance(
+	patternName = "State"
+	participants = State
+	usage = "Describes photo behavior, e.g. not showing flagged photos"
+)
+*/
 public enum PhotoStatus implements EnumValue {
 
 	/**
