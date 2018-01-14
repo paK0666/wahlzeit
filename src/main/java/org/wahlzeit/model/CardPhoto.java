@@ -1,10 +1,14 @@
 package org.wahlzeit.model;
 
+import java.util.List;
+
 import com.googlecode.objectify.annotation.Entity;
 
 @Entity
 public class CardPhoto extends Photo {
 
+	private List<Card> cards = null;
+	
 	public CardPhoto() {
 		id = PhotoId.getNextId();
 		if (id == null || id.isNullId() || id.asInt() < 1)
@@ -20,6 +24,14 @@ public class CardPhoto extends Photo {
 			throw new IllegalArgumentException();
 		id = myId;
 		incWriteCount();
+	}
+	
+	public void AddCard(Card card) {
+		cards.add(card);
+	}
+	
+	public void ResetCards() {
+		cards = null;
 	}
 
 }
